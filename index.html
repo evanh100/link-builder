@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Builder</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        body,html{height:100%}body{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;padding-top:40px;padding-bottom:40px;background-color:#f5f5f5}.form-signin{width:100%;max-width:420px;padding:15px;margin:auto}.form-label-group{position:relative;margin-bottom:1rem}.form-label-group>input,.form-label-group>label{height:3.125rem;padding:.75rem}.form-label-group>label{position:absolute;top:0;left:0;display:block;width:100%;margin-bottom:0;line-height:1.5;color:#495057;pointer-events:none;cursor:text;border:1px solid transparent;border-radius:.25rem;transition:all .1s ease-in-out}.form-label-group input::-webkit-input-placeholder{color:transparent}.form-label-group input:-ms-input-placeholder{color:transparent}.form-label-group input::-ms-input-placeholder{color:transparent}.form-label-group input::-moz-placeholder{color:transparent}.form-label-group input::placeholder{color:transparent}.form-label-group input:not(:placeholder-shown){padding-top:1.25rem;padding-bottom:.25rem}.form-label-group input:not(:placeholder-shown)~label{padding-top:.25rem;padding-bottom:.25rem;font-size:12px;color:#777}@supports (-ms-ime-align:auto){.form-label-group>label{display:none}.form-label-group input::-ms-input-placeholder{color:#777}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.form-label-group>label{display:none}.form-label-group input:-ms-input-placeholder{color:#777}}.btn{background:#0070d2}
+    </style>
+</head>
+
+<body>
+    <div class="form-signin">
+        <div class="text-center mb-4">
+            <img class="mb-4" src="https://login.salesforce.com/img/logo214.svg" alt="" width="180" height="113">
+            <h1 class="h3 mb-3 font-weight-normal">Login Builder</h1>
+        </div>
+        <div class="mb-4 custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1">Toggle for Internal Salesforce Users</label>
+        </div>
+        <form id="customerForm">
+
+            <div class="form-label-group" id="URLBlock">
+                <input type="text" id="inputURL" class="form-control" placeholder="Storefront URL" required="" autofocus="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                <label for="inputURL">Storefront URL</label>
+                <small id="URLHelpBlock" class="form-text text-muted">
+                  Ex: https://sdodemo-main-1234.force.com/DefaultStore
+                </small>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="inputCustomerUserName" class="form-control" placeholder="Username" required="" autofocus="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                <label for="inputCustomerUserName">Username</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="password" value="salesforce1" id="inputCustomerPassword" class="form-control" placeholder="Password" required="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                <label for="inputCustomerPassword">Password</label>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                  Default is "salesforce1"
+                </small>
+            </div>
+            <hr>
+            <div class="alert alert-info text-center" id="customerURL"><span id="resultsURL"></span>/login?un=<span id="resultsUN"></span>&pw=<span id="resultsPass"></span></div>
+            <button class="btn btn-lg btn-primary btn-block" data-clipboard-target="#customerURL">Copy URL</button>
+        </form>
+
+        <form id="adminForm" style="display:none;">
+            <div class="form-label-group">
+                <input type="text" id="inputAdminUserName" class="form-control" placeholder="Username" required="" autofocus="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                <label for="inputAdminUserName">Username</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="password" value="salesforce1" id="inputAdminPassword" class="form-control" placeholder="Password" required="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                <label for="inputAdminPassword">Password</label>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                  Default is "salesforce1"
+              </small>
+            </div>
+            <hr>
+            <div class="alert alert-dark text-center" id="adminURL">https://www.salesforce.com/login.jsp?pw=<span id="resultsAdminPass"></span>&un=<span id="resultsAdminUN"></span></div>
+            <button class="btn btn-lg btn-primary btn-block" data-clipboard-target="#adminURL">Copy URL</button>
+        </form>
+    </div>
+    <script>
+        $( document ).ready(function() {
+          new ClipboardJS('.btn');
+          $("#customSwitch1").change(function(){
+            $('#adminForm, #customerForm').toggle(); 
+            $( "#inputAdminUserName" ).keyup(function() {
+              var value = $( this ).val();
+              $( "#resultsAdminUN" ).text( value );
+            })
+            $( "#inputAdminPassword" ).keyup(function() {
+              var value = $( this ).val();
+              $( "#resultsAdminPass" ).text( value );
+            })
+            .keyup();
+          });
+          $( "#inputURL" ).keyup(function() {
+            var value = $( this ).val();
+            $( "#resultsURL" ).text( value );
+          })
+          $( "#inputCustomerUserName" ).keyup(function() {
+            var value = $( this ).val();
+            $( "#resultsUN" ).text( value );
+          })
+          $( "#inputCustomerPassword" ).keyup(function() {
+            var value = $( this ).val();
+            $( "#resultsPass" ).text( value );
+          })
+          .keyup();
+        });
+    </script>
+
+</body>
+
+</html>
